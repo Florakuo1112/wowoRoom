@@ -25,7 +25,7 @@ function render(data){
     <del class="originPrice">NT$${item.origin_price}</del>
     <p class="nowPrice">NT$${item.price}</p>
     </li>`).join('');
-}
+};
 //篩選功能
 productSelect.addEventListener("change", function(e){
     if(productSelect.value == "全部"){
@@ -90,7 +90,7 @@ productWrap.addEventListener("click", function(e){
                     arr.push(item.quantity);
                 }
             });
-            console.log(arr);
+            //console.log(arr);
             if(arr.length == 0){
                 console.log("空陣列")
                 let data = {
@@ -98,9 +98,9 @@ productWrap.addEventListener("click", function(e){
                     "productId": clickItem,
                     "quantity" : 1
                 }};
-                console.log(data)
+               // console.log(data)
                 axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts`, data).then(response =>{
-                    console.log(response.data);
+                  //  console.log(response.data);
                     initMyCart()
                 });
             }else{
@@ -110,9 +110,9 @@ productWrap.addEventListener("click", function(e){
                         'quantity':arr[1]+1
                     }
                 };
-                console.log(data);
+               // console.log(data);
                 axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts`, data).then(response =>{
-                    console.log(response.data);
+                    //console.log(response.data);
                     initMyCart()
                 })
 
@@ -146,7 +146,7 @@ data.forEach(function(item){
 totalPrice += item.quantity*item.product.price;
 });
 
-console.log(totalPrice);
+//console.log(totalPrice);
 
 str = `<h3 class="section-title">我的購物車</h3>
    <div class="overflowWrap">
@@ -209,9 +209,9 @@ shoppingCart.addEventListener("click", function(e){
     }else{
         //console.log(e.target.getAttribute('data-id'))
         let cartId = e.target.getAttribute('data-id');
-        console.log(cartId)
+      //  console.log(cartId)
          axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/${cartId}`).then(function(response){
-             console.log(response.data);
+       //      console.log(response.data);
              initMyCart()
          })
     }
@@ -224,9 +224,9 @@ shoppingCart.addEventListener("click", function(e){
       //  return console.log("沒按到");
     }else{
         //console.log(e.target.getAttribute('data-id'))
-        console.log("按到");
+      //  console.log("按到");
         axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/`).then(function(response){
-            console.log(response.data);
+          //  console.log(response.data);
             initMyCart()
         })
     }
@@ -283,9 +283,9 @@ submitOrder.addEventListener('click', function(e){
                 }   
             }
         };
-        console.log(data);
-        axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/floratest1/orders`, data).then(function(response){
-            console.log(response.data);
+    //    console.log(data);
+        axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/orders`, data).then(function(response){
+            //console.log(response.data);
         })
     };  
 });
