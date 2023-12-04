@@ -209,6 +209,11 @@ function productPie(){
                 // iris data from R
                 columns: Object.entries(obj),
                 type : 'pie',
+                colors:{
+                    "收納":'#6A33F8',
+                    "床架":'#DACBFF',
+                    "窗簾":'#9D7FEA'
+                },
                 onclick: function (d, i) { console.log("onclick", d, i); },
                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
                 onmouseout: function (d, i) { console.log("onmouseout", d, i); }
