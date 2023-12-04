@@ -1,4 +1,4 @@
-console.log("suc");
+//console.log("suc");
 const api_path = "floratest1"
 
 //產品清單
@@ -36,7 +36,7 @@ productSelect.addEventListener("change", function(e){
         axios.get(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/products`).then(response =>{
             let data = response.data.products;
            // console.log(data);
-            data.forEach(function(item){
+            data.forEach((item)=>{
                 if(item.category == "床架"){
                     arr.push(item);
                 }
@@ -49,7 +49,7 @@ productSelect.addEventListener("change", function(e){
         axios.get(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/products`).then(response =>{
             let data = response.data.products;
            // console.log(data);
-            data.forEach(function(item){
+            data.forEach((item)=>{
                 if(item.category == "收納"){
                     arr.push(item);
                 }
@@ -62,7 +62,7 @@ productSelect.addEventListener("change", function(e){
         axios.get(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/products`).then(response =>{
             let data = response.data.products;
           //  console.log(data);
-            data.forEach(function(item){
+            data.forEach((item)=>{
                 if(item.category == "窗簾"){
                     arr.push(item);
                 }
@@ -142,7 +142,7 @@ function initMyCart(){
 function renderMyCart(data){
 let totalPrice = 0;
 
-data.forEach(function(item){
+data.forEach((item)=>{
 totalPrice += item.quantity*item.product.price;
 });
 
@@ -159,7 +159,7 @@ str = `<h3 class="section-title">我的購物車</h3>
                <th width="15%"></th>
            </tr>`;
 
-data.forEach(function(item){
+data.forEach((item)=>{
     str += `
     <tr >
     <td>
@@ -286,13 +286,14 @@ submitOrder.addEventListener('click', function(e){
     //    console.log(data);
         axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/orders`, data).then(function(response){
             //console.log(response.data);
+
         })
     };  
 });
 
 function resetBookingInfo(){
     let arr = ["姓名","電話","Email","寄送地址"];
-    arr.forEach(function(item){
+    arr.forEach((item)=>{
         document.querySelector(`[data-message='${item}']`).textContent = ``
      })
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>後台</title>
     <link rel="stylesheet" href="admin.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">  
@@ -27,8 +27,16 @@
         <h2 class="section-title">全品項營收比重</h2>
         <div id="chart"></div>
     </section>
+
+    <section class="wrap">
+        <h2 class="section-title">全產品類別營收比重</h2>
+        <div id="chart2"></div>
+    </section>
+
+
+
     <section class="wrap orderPage-list">
-        <a href="#" class="discardAllBtn">清除全部訂單</a>
+        <!-- <a href="#" class="discardAllBtn">清除全部訂單</a>
         <div class="orderTableWrap">
             <table class="orderPage-table">
                 <thead>
@@ -101,7 +109,7 @@
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> -->
     </section>
 
 <!-- C3 D3 -->
@@ -132,5 +140,7 @@ function closeMenu() {
     menu.classList.remove('openMenu');
 }
 </script>
+
+<script src="./admin.js"></script>
 </body>
 </html>
