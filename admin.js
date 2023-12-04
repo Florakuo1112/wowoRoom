@@ -154,13 +154,33 @@ function productPie(){
                 obj[title] += item.price*item.quantity
               }
           });
-         // console.log(obj);
-         // console.log(Object.entries(obj));
+        //  console.log(obj);
+         let newArr = (Object.entries(obj));
+         let c3Arr = [];
+        // console.log(newArr);
+         newArr.sort((a,b)=> b[1] - a[1]);
+         //console.log(newArr);
+         c3Arr.push(newArr[0]);
+         c3Arr.push(newArr[1]);
+         c3Arr.push(newArr[2]);
+         let elseProducts = ['其他'];
+         newArr.splice(0,3);
+        // console.log(newArr);
+         let otherPrice = 0
+         newArr.forEach(function(item){
+             otherPrice += item[1];
+         });
+        // console.log(otherPrice);
+         elseProducts.push(otherPrice);
+        // console.log(elseProducts)
+         c3Arr.push(elseProducts);
+         //console.log(c3Arr)
+         
     
           var chart = c3.generate({
             data: {
                 // iris data from R
-                columns: Object.entries(obj),
+                columns: c3Arr,
                 type : 'pie',
                 onclick: function (d, i) { console.log("onclick", d, i); },
                 onmouseover: function (d, i) { console.log("onmouseover", d, i); },
@@ -221,3 +241,4 @@ function productPie(){
         });
      })
  }
+
