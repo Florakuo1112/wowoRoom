@@ -1,4 +1,4 @@
-//console.log("suc");
+console.log("suc");
 const api_path = "floratest1"
 
 //產品清單
@@ -8,7 +8,7 @@ const productSelect = document.querySelector('.productSelect');
 //初始化產品清單 init()包含render(data)
 init()
 
-function init(data){
+function init(){
     axios.get(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/products`).then(response => {
         let data = response.data.products
         render(data)
@@ -76,7 +76,7 @@ productSelect.addEventListener("change", function(e){
 //加入購物車
 productWrap.addEventListener("click", function(e){
     if(e.target.innerText !== "加入購物車"){
-        return console.log("沒按到")
+        return //console.log("沒按到")
     }else{
         e.preventDefault();
         console.log(e.target.dataset.id);
@@ -121,7 +121,7 @@ productWrap.addEventListener("click", function(e){
 
 
     }
-})
+});
 
 
 
@@ -205,12 +205,12 @@ shoppingCart.innerHTML = str;
 shoppingCart.addEventListener("click", function(e){
     e.preventDefault();
     if(e.target.getAttribute('class') !== "material-icons"){
-       // return console.log("沒按到")
+        return // console.log("沒按到")
     }else{
         //console.log(e.target.getAttribute('data-id'))
         let cartId = e.target.getAttribute('data-id');
       //  console.log(cartId)
-         axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/${cartId}`).then(function(response){
+         axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/${cartId}`).then((response)=>{
        //      console.log(response.data);
              initMyCart()
          })
@@ -225,7 +225,7 @@ shoppingCart.addEventListener("click", function(e){
     }else{
         //console.log(e.target.getAttribute('data-id'))
       //  console.log("按到");
-        axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/`).then(function(response){
+        axios.delete(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/carts/`).then((response)=>{
           //  console.log(response.data);
             initMyCart()
         })
@@ -284,7 +284,7 @@ submitOrder.addEventListener('click', function(e){
             }
         };
     //    console.log(data);
-        axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/orders`, data).then(function(response){
+        axios.post(`https://livejs-api.hexschool.io/api/livejs/v1/customer/${api_path}/orders`, data).then((response)=>{
             //console.log(response.data);
 
         })

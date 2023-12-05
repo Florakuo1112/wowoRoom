@@ -13,7 +13,7 @@ function init(){
     headers: {
       'Authorization': token
     }
-  }).then(function(response){
+  }).then((response)=>{
    // console.log(response.data.orders);
     let data = response.data.orders;
     render(data)
@@ -97,7 +97,7 @@ orderPageList.addEventListener('click', function(e){
         headers: {
           'Authorization': token
         }
-   }).then(function(response){
+   }).then((response)=>{
      //  console.log(response.data);
        init();
        productPie();
@@ -115,7 +115,7 @@ orderPageList.addEventListener('click', function(e){
             headers: {
               'Authorization': token
             }
-       }).then(function(response){
+       }).then((response)=>{
         //console.log(response.data);
         init();
         productPie();
@@ -132,21 +132,21 @@ function productPie(){
         headers: {
           'Authorization': token
         }
-      }).then(function(response){
+      }).then((response)=>{
           let orderData = response.data.orders;
-         // console.log(orderData);
+         //console.log(orderData);
           let arr = [];
-          orderData.forEach(function(item){
+          orderData.forEach((item)=>{
               //console.log(item.products);
               let singleOrder = item.products;
-              singleOrder.forEach(function(item){
+              singleOrder.forEach((item)=>{
                //   console.log(item);
                   arr.push(item);
               });
           });
-         // console.log(arr);
+          console.log(arr);
           let obj = {};
-          arr.forEach(function(item){
+          arr.forEach((item)=>{
               let title = item.title;
               if(obj[title] == undefined){
                   obj[title] = item.price*item.quantity;
@@ -167,7 +167,7 @@ function productPie(){
          newArr.splice(0,3);
         // console.log(newArr);
          let otherPrice = 0
-         newArr.forEach(function(item){
+         newArr.forEach((item)=>{
              otherPrice += item[1];
          });
         // console.log(otherPrice);
@@ -199,21 +199,21 @@ function productPie(){
         headers: {
             'Authorization': token
           }  
-     }).then(function(response){
+     }).then((response)=>{
         let orderData = response.data.orders;
        // console.log(orderData);
         let arr = [];
-        orderData.forEach(function(item){
+        orderData.forEach((item)=>{
            // console.log(item.products);
             let singleOrder = item.products;
-            singleOrder.forEach(function(item){
+            singleOrder.forEach((item)=>{
                // console.log(item);
                 arr.push(item);
             })
         });
        // console.log(arr);
         let obj = {};
-        arr.forEach(function(item){
+        arr.forEach((item)=>{
             let category = item.category;
             if(obj.category == undefined){
                 obj[category] = item.price*item.quantity;
@@ -240,5 +240,5 @@ function productPie(){
             }
         });
      })
- }
+ };
 
